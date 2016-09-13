@@ -16,22 +16,22 @@ const client = new ApolloClient();
 import testReducer from "./reducers/testReducer";
 const query = gql`{posts{title}}`;
 /*client.query({query})
-    .then(data => {
-        console.log(data);
-    });*/
+ .then(data => {
+ console.log(data);
+ });*/
 // let store = createStore(rootReducer,applyMiddleware(client.middleware()));
 let store = configureStore();
 /*const store = createStore(
-    combineReducers({
-        testReducer,
-        apollo: client.reducer(),
-    }),
-    applyMiddleware(client.middleware())
-);*/
+ combineReducers({
+ testReducer,
+ apollo: client.reducer(),
+ }),
+ applyMiddleware(client.middleware())
+ );*/
 console.log("store.getState in main is", store.getState());
 render(
     <ApolloProvider store={store} client={client}>
-            <App/>
+        <App/>
     </ApolloProvider>,
     document.getElementById("root"));
 
