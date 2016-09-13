@@ -9,6 +9,9 @@ header{
     border-radius:3px;
     margin:0 10px 0 10px;
 }
+header h1{
+    color:#636363;
+}
 #posts-list{
     margin:0 10px 0 10px;
 }

@@ -2,5 +2,11 @@
  * Created by Keno on 8/21/2016.
  */
 import {combineReducers} from "redux";
+import ApolloClient from 'apollo-client';
+import test from "./testReducer";
 
-export default combineReducers({posts:(state = {}) => state});
+const client = new ApolloClient();
+export default combineReducers({
+    test,
+    apollo:client.reducer()
+});
