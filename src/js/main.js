@@ -7,10 +7,13 @@ import App from "./components/App";
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import {configureStore} from "./store/configureStore";
+// import configureStore from "./store/configureStore";
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import gql from "graphql-tag";
-window[gql] = gql;
+if(typeof window != "undefined"){
+    window.gql = gql;
+}
 import rootReducer from "./reducers/rootReducer";
 const client = new ApolloClient();
 import testReducer from "./reducers/testReducer";

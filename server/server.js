@@ -2,7 +2,6 @@
  * Created by Keno on 8/21/2016.
  */
 const express = require("express");
-const path = require("path");
 const apolloExpress = require("apollo-server").apolloExpress;
 const graphiqlExpress = require("apollo-server").graphiqlExpress;
 const app = express();
@@ -15,10 +14,6 @@ app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
 }));
 app.use(express.static(__dirname + "/../dist"));
-
-/*app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../dist", "index.html"));
-});*/
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)

@@ -88,30 +88,34 @@
 	                                                                                                                                                   * Created by Keno on 8/21/2016.
 	                                                                                                                                                   */
 
+	// import configureStore from "./store/configureStore";
 
-	window[_graphqlTag2.default] = _graphqlTag2.default;
+
+	if (typeof window != "undefined") {
+	  window.gql = _graphqlTag2.default;
+	}
 
 	var client = new _apolloClient2.default();
 
 	var query = (0, _graphqlTag2.default)(_templateObject);
 	/*client.query({query})
-	    .then(data => {
-	        console.log(data);
-	    });*/
+	 .then(data => {
+	 console.log(data);
+	 });*/
 	// let store = createStore(rootReducer,applyMiddleware(client.middleware()));
 	var store = (0, _configureStore.configureStore)();
 	/*const store = createStore(
-	    combineReducers({
-	        testReducer,
-	        apollo: client.reducer(),
-	    }),
-	    applyMiddleware(client.middleware())
-	);*/
+	 combineReducers({
+	 testReducer,
+	 apollo: client.reducer(),
+	 }),
+	 applyMiddleware(client.middleware())
+	 );*/
 	console.log("store.getState in main is", store.getState());
 	(0, _reactDom.render)(_react2.default.createElement(
-	    _reactApollo.ApolloProvider,
-	    { store: store, client: client },
-	    _react2.default.createElement(_App2.default, null)
+	  _reactApollo.ApolloProvider,
+	  { store: store, client: client },
+	  _react2.default.createElement(_App2.default, null)
 	), document.getElementById("root"));
 
 /***/ },
